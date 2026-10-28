@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="web_dashboard" name="shell-type" />
+    <title>BloodConnect - Metropolitan Central Blood Hub</title>
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#ebf1ff",
+              "surface-variant": "#d8e3fa",
+              "on-background": "#111c2c",
+              "secondary": "#ab3241",
+              "on-primary-fixed-variant": "#900827",
+              "surface-container-high": "#dee9ff",
+              "on-tertiary-fixed": "#002118",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#cfdaf1",
+              "tertiary-container": "#00624d",
+              "secondary-fixed-dim": "#ffb3b5",
+              "on-primary-container": "#ffbabc",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#594141",
+              "primary-container": "#a61e35",
+              "on-error": "#ffffff",
+              "inverse-surface": "#263142",
+              "surface-tint": "#b2283c",
+              "on-tertiary-fixed-variant": "#00513f",
+              "outline": "#8d7071",
+              "surface": "#f9f9ff",
+              "outline-variant": "#e0bebf",
+              "on-secondary-fixed": "#40000c",
+              "tertiary": "#004838",
+              "primary-fixed-dim": "#ffb3b5",
+              "on-secondary-fixed-variant": "#8a182c",
+              "on-primary-fixed": "#40000b",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "surface-container-highest": "#d8e3fa",
+              "on-surface": "#111c2c",
+              "secondary-container": "#fe707c",
+              "primary": "#830021",
+              "secondary-fixed": "#ffdada",
+              "tertiary-fixed": "#94f5d5",
+              "inverse-primary": "#ffb3b5",
+              "primary-fixed": "#ffdada",
+              "surface-container-low": "#f0f3ff",
+              "background": "#f9f9ff",
+              "on-tertiary-container": "#7dddbf",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#78d8ba",
+              "surface-bright": "#f9f9ff",
+              "surface-container": "#e7eeff",
+              "on-secondary-container": "#70001c",
+              "on-primary": "#ffffff"
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            spacing: {
+              "space-sm": "0.5rem",
+              "gutter": "1.5rem",
+              "margin": "2rem",
+              "space-lg": "1.5rem",
+              "margin-mobile": "1rem",
+              "space-md": "1rem",
+              "space-xs": "0.25rem",
+              "gutter-mobile": "0.75rem",
+              "space-xl": "2rem"
+            },
+            fontFamily: {
+              "headline-xl-mobile": ["Manrope"],
+              "body-sm": ["Manrope"],
+              "label-md": ["Inter"],
+              "headline-xl": ["Manrope"],
+              "label-sm": ["Inter"],
+              "label-lg": ["Inter"],
+              "body-lg": ["Manrope"],
+              "headline-md": ["Manrope"],
+              "headline-sm": ["Manrope"],
+              "headline-lg": ["Manrope"],
+              "body-md": ["Manrope"],
+              "data-metric": ["Inter"],
+              "headline-lg-mobile": ["Manrope"]
+            },
+            fontSize: {
+              "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+              "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+              "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+              "label-lg": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+              "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+              "headline-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+              "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "data-metric": ["28px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "headline-lg-mobile": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }]
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      @layer base {
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cfdaf1;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .material-symbols-filled {
+        font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body-md text-body-md text-on-surface">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
